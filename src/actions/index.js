@@ -1,5 +1,4 @@
-import { INCREMENT, DECREMENT, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, INCREMENT_ASYNC } from '../contants';
-import axios from 'axios';
+import { INCREMENT, DECREMENT, FETCH_USERS_REQUEST, INCREMENT_ASYNC } from '../contants';
 
 export const increment = () => {
     return {
