@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from '../contants';
+import { INCREMENT, DECREMENT, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, INCREMENT_ASYNC } from '../contants';
 import axios from 'axios';
 
 export const increment = () => {
@@ -14,26 +14,13 @@ export const decrement = () => {
 }
 
 export const increment_async = () => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch({type: INCREMENT});
-        }, 2000);
+    return {
+        type: INCREMENT_ASYNC
     }
 }
 
 export const get_users = () => {
-    return dispatch => {
-        dispatch({type: FETCH_USERS_REQUEST})
-        axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
-            const users = res.data;
-            dispatch(get_users_success(users))
-        })
-    }
-}
-
-export const get_users_success = (users) => {
     return {
-        type: FETCH_USERS_SUCCESS,
-        users
+        type: FETCH_USERS_REQUEST
     }
 }

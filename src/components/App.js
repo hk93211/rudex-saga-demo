@@ -8,7 +8,9 @@ class App extends Component {
 
         let usersComponent = null;
         if (user) {
-            if (user.isLoading) {
+            if (user.error) {
+                usersComponent = <h2>{user.error.message}</h2>
+            } else if (user.isLoading) {
                 usersComponent = <h2>is loading...</h2>
             } else if (!user.users.length) {
                 usersComponent = <h2>no users...</h2>;
